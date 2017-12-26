@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .load-msg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-size: 40px;
+      color: #666;
+      -webkit-transform: translate3D(-50%, -50%, 0);
+      transform: translate3D(-50%, -50%, 0);
+    }
+
+    .webBox {
+      display: -webkit-box;
+      display: box;
+      -webkit-box-align: center;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-box-pack: justify;
+      box-pack: justify;
+    }
+
+    .display-box-hor-justify {
+      -moz-box-pack: justify;
+      -webkit-box-pack: justify;
+      -o-box-pack: justify;
+      box-pack: justify;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .game-bg {
+      display: block;
+      position: absolute;
+    }
+
+    #road {
+      width: 49.33333333%;
+      /* margin:0 auto; */
+      height: 100%;
+      margin-left: 25.33333333%;
+      margin-right: 25.33333333%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="load-msg" id="load-msg"></span>
+  <canvas width="759" height="1200" class="game-bg" id="gameView"></canvas>
+<script src="src/js/createjs.js"></script>
+<script src="src/js/game.js"></script>
+</body>
+
+</html>
