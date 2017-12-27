@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    *{padding: 0; margin: 0;}
+  </style>
 </head>
 
 <body>
-  <canvas id="canvas-demo" width="750" height="1200"></canvas>
+  <canvas id="canvas-demo" width="750" height="500"></canvas>
   <script src="src/js/createjs.js"></script>
   <script>
     window.onload = function () {
@@ -68,8 +71,47 @@
       // shape.cache(-50, -50, 100, 100);
       // stage.addChild(shape);
 
-      
+
       // stage.update();
+
+      var stage = new createjs.Stage("canvas-demo");
+      createjs.Ticker.addEventListener("tick", stage);
+
+      var mc = new createjs.MovieClip({
+        loop: -1,
+        labels: {
+          myLabel: 20
+        }
+      });
+      stage.addChild(mc);
+
+      var child1 = new createjs.Shape(
+        new createjs.Graphics().beginFill("#999999")
+        .drawCircle(30, 30, 30));
+      var child2 = new createjs.Shape(
+        new createjs.Graphics().beginFill("#5a9cfb")
+        .drawCircle(30, 30, 30));
+
+      mc.timeline.addTween(
+        createjs.Tween.get(child1)
+        .to({
+          x: 0
+        }).to({
+          x: 60
+        }, 50).to({
+          x: 0
+        }, 50));
+      mc.timeline.addTween(
+        createjs.Tween.get(child2)
+        .to({
+          x: 60
+        }).to({
+          x: 0
+        }, 50).to({
+          x: 60
+        }, 50));
+
+      mc.gotoAndPlay("start");
     }
   </script>
 </body>
